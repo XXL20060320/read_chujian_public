@@ -1,0 +1,434 @@
+{
+  "resnet_by_doc": {
+    "n_classes": 1866,
+    "n_train": 26964,
+    "n_test_closed": 2901,
+    "top1": 0.1437,
+    "top5": 0.2734
+  },
+  "resnet_by_rand": {
+    "n_classes": 1922,
+    "n_train": 28237,
+    "n_test_closed": 3480,
+    "top1": 0.1661,
+    "top5": 0.3195
+  },
+  "batch_probe": {
+    "n_batches": 15,
+    "train_top1": 0.9506,
+    "chance": 0.0667
+  },
+  "cnn": {
+    "n_labels": 682,
+    "n_train": 14801,
+    "n_test": 1577,
+    "test_top1": 0.702,
+    "test_top5": 0.8757,
+    "threshold": 0.5,
+    "accept_rate": 0.4997,
+    "top1_on_accepted": 0.9036,
+    "top1_on_rejected": 0.5006,
+    "n_rejected": 789,
+    "top5_on_accepted": 0.9822
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.2,
+      "coverage": 0.8288,
+      "n_accepted": 1307,
+      "top1_on_accepted": 0.7972
+    },
+    {
+      "threshold": 0.3,
+      "coverage": 0.7242,
+      "n_accepted": 1142,
+      "top1_on_accepted": 0.8503
+    },
+    {
+      "threshold": 0.4,
+      "coverage": 0.6246,
+      "n_accepted": 985,
+      "top1_on_accepted": 0.8772
+    },
+    {
+      "threshold": 0.5,
+      "coverage": 0.4997,
+      "n_accepted": 788,
+      "top1_on_accepted": 0.9036
+    },
+    {
+      "threshold": 0.6,
+      "coverage": 0.3982,
+      "n_accepted": 628,
+      "top1_on_accepted": 0.9204
+    },
+    {
+      "threshold": 0.7,
+      "coverage": 0.2777,
+      "n_accepted": 438,
+      "top1_on_accepted": 0.9452
+    },
+    {
+      "threshold": 0.8,
+      "coverage": 0.1623,
+      "n_accepted": 256,
+      "top1_on_accepted": 0.9844
+    },
+    {
+      "threshold": 0.9,
+      "coverage": 0.0539,
+      "n_accepted": 85,
+      "top1_on_accepted": 1.0
+    }
+  ],
+  "retrieval": {
+    "index_shape": [
+      14801,
+      256
+    ],
+    "n_query": 1577,
+    "top1_label_hit": 0.6963,
+    "top8_label_hit": 0.8675,
+    "top8_hit_sample200": 0.84
+  },
+  "by_batch": {
+    "上博簡": {
+      "n": 338,
+      "top1": 0.6331
+    },
+    "包山簡": {
+      "n": 158,
+      "top1": 0.519
+    },
+    "子彈庫帛": {
+      "n": 17,
+      "top1": 0.4706
+    },
+    "清華簡": {
+      "n": 604,
+      "top1": 0.8328
+    },
+    "葛陵簡": {
+      "n": 77,
+      "top1": 0.7532
+    },
+    "郭店簡": {
+      "n": 383,
+      "top1": 0.6319
+    }
+  },
+  "retrieval_on_rejected": {
+    "n": 789,
+    "top8_hit": 0.763
+  },
+  "retrieval_topk": {
+    "1": 0.6963,
+    "3": 0.8117,
+    "5": 0.8434,
+    "8": 0.8675
+  },
+  "params": 1347914,
+  "val": {
+    "n": 3001,
+    "top1": 0.5148,
+    "top5": 0.7577
+  },
+  "failure_cases": [
+    {
+      "true": "{爪家}",
+      "batch": "清華簡",
+      "doc": "05B-封鄦之命",
+      "slip": "5",
+      "path": "C:\\Users\\natou\\CHUBS\\glyphs\\{爪家}\\清華簡_05B-封鄦之命_5_05B-05-15.png",
+      "conf": 0.7889,
+      "top5": [
+        {
+          "label": "○（家）",
+          "p": 0.7889
+        },
+        {
+          "label": "{爪家}",
+          "p": 0.1651
+        },
+        {
+          "label": "昜",
+          "p": 0.0039
+        },
+        {
+          "label": "新",
+          "p": 0.0031
+        },
+        {
+          "label": "奚",
+          "p": 0.0029
+        }
+      ],
+      "nn_labels": [
+        "○（家）",
+        "○（家）",
+        "○（家）",
+        "○（家）",
+        "○（家）"
+      ]
+    },
+    {
+      "true": "{胃刀}（謂）",
+      "batch": "郭店簡",
+      "doc": "12-六德",
+      "slip": "1",
+      "path": "C:\\Users\\natou\\CHUBS\\glyphs\\{胃刀}（謂）\\郭店簡_12-六德_1_12-01-03.png",
+      "conf": 0.1618,
+      "top5": [
+        {
+          "label": "惪（德）",
+          "p": 0.1618
+        },
+        {
+          "label": "憂",
+          "p": 0.1272
+        },
+        {
+          "label": "{胃刀}（謂）",
+          "p": 0.1113
+        },
+        {
+          "label": "辠（罪）",
+          "p": 0.0947
+        },
+        {
+          "label": "辠",
+          "p": 0.0832
+        }
+      ],
+      "nn_labels": [
+        "{胃刀}（謂）",
+        "{胃刀}（謂）",
+        "憂",
+        "憂",
+        "{胃刀}（謂）"
+      ]
+    },
+    {
+      "true": "○（一）",
+      "batch": "葛陵簡",
+      "doc": "J1-甲一",
+      "slip": "22",
+      "path": "C:\\Users\\natou\\CHUBS\\glyphs\\○（一）\\葛陵簡_J1-甲一_22_J1-022-10.png",
+      "conf": 0.4186,
+      "top5": [
+        {
+          "label": "○（氣）",
+          "p": 0.4186
+        },
+        {
+          "label": "○（一）",
+          "p": 0.0389
+        },
+        {
+          "label": "異",
+          "p": 0.0316
+        },
+        {
+          "label": "○（瘥）",
+          "p": 0.025
+        },
+        {
+          "label": "觀",
+          "p": 0.0243
+        }
+      ],
+      "nn_labels": [
+        "○（一）",
+        "○（氣）",
+        "○（氣）",
+        "○（一）",
+        "○（一）"
+      ]
+    },
+    {
+      "true": "○（中）",
+      "batch": "包山簡",
+      "doc": "3-遣冊賵書",
+      "slip": "269",
+      "path": "C:\\Users\\natou\\CHUBS\\glyphs\\○（中）\\包山簡_3-遣冊賵書_269_3-269-16.png",
+      "conf": 0.0674,
+      "top5": [
+        {
+          "label": "善",
+          "p": 0.0674
+        },
+        {
+          "label": "豊（禮）",
+          "p": 0.055
+        },
+        {
+          "label": "良",
+          "p": 0.053
+        },
+        {
+          "label": "怠",
+          "p": 0.046
+        },
+        {
+          "label": "○（中）",
+          "p": 0.0435
+        }
+      ],
+      "nn_labels": [
+        "裏",
+        "豊（禮）",
+        "○（中）",
+        "善",
+        "良"
+      ]
+    },
+    {
+      "true": "○（中）",
+      "batch": "郭店簡",
+      "doc": "06-五行",
+      "slip": "5",
+      "path": "C:\\Users\\natou\\CHUBS\\glyphs\\○（中）\\郭店簡_06-五行_5_06-05-10.png",
+      "conf": 0.4085,
+      "top5": [
+        {
+          "label": "宔（主）",
+          "p": 0.4085
+        },
+        {
+          "label": "○（中）",
+          "p": 0.2598
+        },
+        {
+          "label": "命",
+          "p": 0.0329
+        },
+        {
+          "label": "不",
+          "p": 0.0245
+        },
+        {
+          "label": "善",
+          "p": 0.0146
+        }
+      ],
+      "nn_labels": [
+        "○（中）",
+        "宔（主）",
+        "宔（主）",
+        "○（中）",
+        "親"
+      ]
+    },
+    {
+      "true": "○（乎）",
+      "batch": "上博簡",
+      "doc": "6B-孔子見季桓子",
+      "slip": "19",
+      "path": "C:\\Users\\natou\\CHUBS\\glyphs\\○（乎）\\上博簡_6B-孔子見季桓子_19_6B-19-04.png",
+      "conf": 0.0459,
+      "top5": [
+        {
+          "label": "好",
+          "p": 0.0459
+        },
+        {
+          "label": "智（知）",
+          "p": 0.0426
+        },
+        {
+          "label": "○（宰）",
+          "p": 0.0383
+        },
+        {
+          "label": "李",
+          "p": 0.0367
+        },
+        {
+          "label": "○（信）",
+          "p": 0.0348
+        }
+      ],
+      "nn_labels": [
+        "智（知）",
+        "可（何）",
+        "孔子",
+        "聚",
+        "罰"
+      ]
+    },
+    {
+      "true": "○（乎）",
+      "batch": "郭店簡",
+      "doc": "12-六德",
+      "slip": "38",
+      "path": "C:\\Users\\natou\\CHUBS\\glyphs\\○（乎）\\郭店簡_12-六德_38_12-38-14.png",
+      "conf": 0.8791,
+      "top5": [
+        {
+          "label": "○（吾）",
+          "p": 0.8791
+        },
+        {
+          "label": "○（乎）",
+          "p": 0.0356
+        },
+        {
+          "label": "虛",
+          "p": 0.0209
+        },
+        {
+          "label": "坪（平）",
+          "p": 0.0111
+        },
+        {
+          "label": "城（成）",
+          "p": 0.0065
+        }
+      ],
+      "nn_labels": [
+        "○（吾）",
+        "○（乎）",
+        "○（吾）",
+        "○（吾）",
+        "○（吾）"
+      ]
+    },
+    {
+      "true": "○（乎）",
+      "batch": "上博簡",
+      "doc": "6B-孔子見季桓子",
+      "slip": "3",
+      "path": "C:\\Users\\natou\\CHUBS\\glyphs\\○（乎）\\上博簡_6B-孔子見季桓子_3_6B-03-21.png",
+      "conf": 0.2269,
+      "top5": [
+        {
+          "label": "君",
+          "p": 0.2269
+        },
+        {
+          "label": "含（今）",
+          "p": 0.0895
+        },
+        {
+          "label": "雨",
+          "p": 0.0423
+        },
+        {
+          "label": "唯（雖）",
+          "p": 0.0348
+        },
+        {
+          "label": "凡",
+          "p": 0.0246
+        }
+      ],
+      "nn_labels": [
+        "君",
+        "君",
+        "含（今）",
+        "司",
+        "弗"
+      ]
+    }
+  ]
+}
