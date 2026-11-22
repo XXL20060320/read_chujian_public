@@ -2,7 +2,7 @@
 # 提交包不通过 pip 安装本目录，故未声明 build-system。
 [project]
 name = "chujian-xiangyuxi"
-version = "1.0.0"
+version = "1.1.0"
 description = "楚简相与析 · 楚简字形识别与形近字检索助手"
 readme = "README.md"
 license = { file = "LICENSE" }

@@ -118,7 +118,7 @@ def main():
     df = df[df["path"].apply(os.path.exists)].reset_index(drop=True)
     if df.empty:
         raise SystemExit(
-            f"{args.splits} 里的 path 在本机全部不存在（该列是开发机的 CHUBS 绝对路径）。\n"
+            f"{args.splits} 里的 path 在本机全部不存在（该列是相对路径 glyphs/<标签>/<文件名>，由 prep.py 生成）。\n"
             "请先运行：python prep.py --root <本机 CHUBS/glyphs 目录> --out data")
     cnt = df.label.value_counts()
     df = df[df.label.isin([l for l, c in cnt.items() if c >= args.min_count])]

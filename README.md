@@ -5,6 +5,35 @@
 
 上传一张裁好的楚简单字图，返回 top-5 候选标签与置信度、8 个带出处的形近字例，以及一条按阈值给出的判语。项目方案见 `作品设计方案.md`；数据与素材来源见 `NOTICE.md`，代码许可见 `LICENSE`。
 
+## 线上演示（Live demo）
+
+- 地址：<http://8.137.13.55:7861/>（评审期内保持在线；服务端 `/api/meta` 报告版本 `1.1.0`、`count = 682`）
+- 682 个标签，材料来自清华简、上博简、包山简、郭店简等 15 批；页面内置三张示例字图，点击即可载入。
+- 线上演示与随包 `bundle_cnn/` 使用同一套交付权重：用 `examples/` 三张图在本地复算的最高置信度与线上接口返回一致。
+- 仓库代码版本同样为 `1.1.0`（见 `pyproject.toml`）。
+
+## Quick start (English, for reviewers)
+
+The delivered model bundle (`bundle_cnn/`, about 100 MB) ships with this repository, so the
+demo runs fully offline and does **not** require the CHUBS dataset or any pretrained weights.
+All inference is CPU-only.
+
+```bash
+git clone https://github.com/XXL20060320/read_chujian_public
+cd read_chujian_public
+python -m venv .venv
+# Windows:       .venv\Scripts\python.exe -m pip install -r requirements.txt
+# Linux/macOS:   .venv/bin/python -m pip install -r requirements.txt
+# Windows:       .venv\Scripts\python.exe app.py --bundle bundle_cnn
+# Linux/macOS:   .venv/bin/python app.py --bundle bundle_cnn
+```
+
+Then open <http://127.0.0.1:7860>, choose one of the three bundled images under
+`examples/` (or upload a cropped single glyph), and click **识读** (Recognise).
+Python 3.11+ is required (tested on 3.11.9 and 3.13.14); the pinned versions are in
+`requirements.txt`, and CPU wheels of PyTorch are on the official CPU index as noted below.
+A hosted instance of the same model bundle runs at <http://8.137.13.55:7861/> (version 1.1.0).
+
 ## 直接运行（Windows）
 
 双击 start.bat 即可：脚本会自动寻找已装好依赖的 Python、检查模型包是否齐全，然后启动并打开浏览器。
@@ -20,7 +49,7 @@ python app.py --bundle bundle_cnn
 本仓库不附带虚拟环境。若要隔离环境，可先 `python -m venv .venv`，装好 `requirements.txt` 后用
 `.venv\Scripts\python.exe app.py --bundle bundle_cnn` 启动，效果相同。
 
-浏览器打开 `http://127.0.0.1:7860`，上传字图后点「识读」；也可直接点击界面中的三张随包示例。形近字取自 `bundle_cnn/X_train.npy` 中与检索索引同序的 64×64 灰度图；`index_paths.json` 不是运行必需，仅在缺少 `X_train.npy` 时作兜底；应用不依赖任何 CHUBS 本机路径。
+浏览器打开 `http://127.0.0.1:7860`，上传字图后点「识读」；也可直接点击界面中的三张随包示例。形近字取自 `bundle_cnn/X_train.npy` 中与检索索引同序的 64×64 灰度图；交付包缺 `X_train.npy` 时应用会直接报错——`index_paths.json` 只是开发期溯源文件，不随交付包提供，仅第一版 ResNet 包才会用它作兜底；应用不依赖任何 CHUBS 本机路径。
 
 在其他电脑上，安装依赖后把上面的 `python` 换成本机的 Python 3.11 解释器路径即可。不要根据 PATH 中裸 `python` 的名字推断环境，先用 `python --version` 和 `python -m pip show torch gradio` 确认。
 
@@ -53,6 +82,8 @@ Windows 中文输出乱码时先设 `$env:PYTHONUTF8=1`。
 ## 数据
 
 CHUBS（清华大学 NLP 组，COLING 2025），102,722 条索引、8,349 个标签、15 批材料。下载：https://huggingface.co/datasets/chen-yingfa/CHUBS ，按其发布许可使用。
+
+本仓库不再分发 CHUBS 原始数据集；`examples/` 下三张示例字图为 CHUBS 图版原字，按 Apache-2.0 随附并标注出处（见 `NOTICE.md` 与 `examples/samples.json`）。
 
 ```text
 glyphs/<标签>/<批次>_<篇号-篇名>_<简号>_<批次号>-<简号>-<字序号>.png
@@ -117,6 +148,7 @@ requirements-legacy.txt     第一版附加依赖
 requirements-lock.txt       逐包锁定版本（由验证环境冻结，用于逐位复现）
 pyproject.toml              版本约束与项目元数据（requires-python 等）
 LICENSE                     代码许可（MIT）；数据许可见 NOTICE.md
+third_party/CHUBS-Apache-2.0.txt  CHUBS 派生材料与示例字图的 Apache-2.0 许可全文
 eval_extras.json            完整实测结果
 eval_baselines.log          像素基线日志
 eval_diag2.log              二值化对照日志

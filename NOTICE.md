@@ -8,9 +8,14 @@
 - 来源：清华大学 NLP 组（THUNLP），COLING 2025
 - 地址：https://huggingface.co/datasets/chen-yingfa/CHUBS
 - 许可：Apache-2.0
-- 本作品的使用方式：取其中 15 批材料的单字图，经筛选、缩放后用于训练与评测。`bundle_cnn/X_train.npy`、`X_val.npy`、`X_test.npy` 是由这些字图缩放得到的 64×64 灰度缓存，`index_*.json` 为其标签与出土出处。本作品不以数据集形式分发 CHUBS 原始字图；仅 `examples/` 下三张示例字图为 CHUBS 图版原字，按 Apache-2.0 随附并标注出处（见 `examples/samples.json`）。
+- 本作品的使用方式：取其中 15 批材料的单字图，经筛选、缩放后用于训练与评测。`bundle_cnn/X_train.npy`、`X_val.npy`、`X_test.npy` 是由这些字图缩放得到的 64×64 灰度缓存，`index.npy`、`index_*.json` 为其特征索引、标签与出土出处。本作品不以数据集形式再分发 CHUBS 原始字图；仅 `examples/` 下三张示例字图为 CHUBS 图版原字，按 Apache-2.0 随附并标注出处（见 `examples/samples.json`）。如需 CHUBS 原始字图，请从上面的原地址获取并遵守其许可。
 
-## Extract 的出处字段
+## 许可范围
+
+- 本仓库源代码（`*.py`、`*.bat`、`*.md` 等）：MIT License，全文见 `LICENSE`。
+- CHUBS 派生材料（`bundle_cnn/X_*.npy`、`bundle_cnn/index.npy`、`bundle_cnn/index_*.json`）与 `examples/` 下三张示例字图：按 CHUBS 的 Apache-2.0 许可随附，许可全文见 `third_party/CHUBS-Apache-2.0.txt`，署名与来源见上一节。
+
+## 出处字段
 
 `data/splits.csv` 中的 `batch`、`doc`、`slip` 三列直接来自 CHUBS 的文件名编码，用于在界面中显示形近字的「批次·篇·简号」。`path` 列为字图相对路径（`glyphs/<标签>/<文件名>`），仅供溯源，运行时不读取。
 
