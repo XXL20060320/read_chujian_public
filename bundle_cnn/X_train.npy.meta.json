@@ -1,0 +1,9 @@
+{
+  "splits": "68b32e1c8961b3e6",
+  "min_count": 20,
+  "per_class": 30,
+  "size": 64,
+  "n": 14801,
+  "first": "glyphs\\{力它}\\包山簡_2-卜筮祭禱_197_2-197-27.png",
+  "last": "glyphs\\﨤（及）\\上博簡_5H-鬼神之明_2_5H-02-21.png"
+}

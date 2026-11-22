@@ -1,0 +1,26 @@
+[
+  {
+    "file": "example_01.png",
+    "label": "{力它}",
+    "batch": "包山簡",
+    "doc": "2-卜筮祭禱",
+    "slip": "197",
+    "index": 0
+  },
+  {
+    "file": "example_02.png",
+    "label": "咎",
+    "batch": "上博簡",
+    "doc": "3A-周易",
+    "slip": "48",
+    "index": 4933
+  },
+  {
+    "file": "example_03.png",
+    "label": "年",
+    "batch": "清華簡",
+    "doc": "07D-越公其事",
+    "slip": "74",
+    "index": 779
+  }
+]

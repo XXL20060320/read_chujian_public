@@ -1,0 +1,20 @@
+# 仅用于声明版本约束与项目元数据；运行方式见 README.md（直接 python app.py）。
+# 提交包不通过 pip 安装本目录，故未声明 build-system。
+[project]
+name = "chujian-xiangyuxi"
+version = "1.0.0"
+description = "楚简相与析 · 楚简字形识别与形近字检索助手"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+dependencies = [
+  "torch==2.14.1",
+  "numpy==2.4.6",
+  "pandas==3.1.0",
+  "Pillow==12.3.0",
+  "gradio==6.30.0",
+]
+
+[project.optional-dependencies]
+# 仅重跑第一版（ResNet18 对照）时需要
+legacy = ["torchvision==0.29.2"]

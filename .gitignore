@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# 编辑器 / IDE
+.idea/
+.vscode/
+
+# 冒烟测试与临时目录
+bundle_smoke/
+_check/
+_check2/
+*.tmp
+
+# 系统
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 注意：以下为运行/复现必需，故意不忽略：
+#   bundle_cnn/model.pt  bundle_cnn/index.npy  bundle_cnn/index_*.json
+#   bundle_cnn/meta.json bundle_cnn/X_train.npy bundle_cnn/X_val.npy  bundle_cnn/X_test.npy
+#   data/splits.csv  eval_baselines.log  eval_diag2.log  eval_extras.json
