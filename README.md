@@ -11,28 +11,6 @@
 - 线上演示与随包 `bundle_cnn/` 使用同一套交付权重：用 `examples/` 三张图在本地复算的最高置信度与线上接口返回一致。
 - 仓库代码版本同样为 `1.1.0`（见 `pyproject.toml`）。
 
-## Quick start (English, for reviewers)
-
-The delivered model bundle (`bundle_cnn/`, about 100 MB) ships with this repository, so the
-demo runs fully offline and does **not** require the CHUBS dataset or any pretrained weights.
-All inference is CPU-only.
-
-```bash
-git clone https://github.com/XXL20060320/read_chujian_public
-cd read_chujian_public
-python -m venv .venv
-# Windows:       .venv\Scripts\python.exe -m pip install -r requirements.txt
-# Linux/macOS:   .venv/bin/python -m pip install -r requirements.txt
-# Windows:       .venv\Scripts\python.exe app.py --bundle bundle_cnn
-# Linux/macOS:   .venv/bin/python app.py --bundle bundle_cnn
-```
-
-Then open <http://127.0.0.1:7860>, choose one of the three bundled images under
-`examples/` (or upload a cropped single glyph), and click **识读** (Recognise).
-Python 3.11+ is required (tested on 3.11.9 and 3.13.14); the pinned versions are in
-`requirements.txt`, and CPU wheels of PyTorch are on the official CPU index as noted below.
-A hosted instance of the same model bundle runs at <http://8.137.13.55:7861/> (version 1.1.0).
-
 ## 直接运行（Windows）
 
 双击 start.bat 即可：脚本会自动寻找已装好依赖的 Python、检查模型包是否齐全，然后启动并打开浏览器。
